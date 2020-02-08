@@ -1,0 +1,28 @@
+<div class="presentation text-center">
+  <h2 class="h2-title">Partenaires</h2>
+  <div class="d-flex">
+    <div class="hr-title mx-auto"></div>
+  </div>
+  <div class="row justify-content-center pt-2 pb-5">
+    <div class="col-11 col-md-10">
+      <div *ngFor="let row of partners, let i = index" class="row justify-content-center">
+        <div *ngFor="let partner of row, let j = index" class="col-md my-3">
+          <div class="d-flex justify-content-center pb-2">
+            <div class="partner-image">
+              <img [src]="'../../../assets/partners/'+(i*4+j+1)+'.png'" [alt]="'A photo of '+partner.name">
+            </div>
+          </div>
+          <div>
+            <h4 class="partner-name">{{partner.name}}</h4>
+          </div>
+          <div>
+            <h5 class="partner-title">{{partner.job}}</h5>
+          </div>
+          <div class="partner-description">
+            {{partner.description}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

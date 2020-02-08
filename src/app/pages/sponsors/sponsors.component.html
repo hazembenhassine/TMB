@@ -1,0 +1,57 @@
+<div class="presentation sponsor d-none d-md-block">
+  <div class="carousel-container d-flex w-100">
+    <div class="my-auto w-100">
+      <ngb-carousel #carousel interval="3000"
+                    (slide)="incrementCarouselCounter($event)"
+                    [showNavigationIndicators]="false"
+                    [pauseOnHover]="true">
+        <ng-template [id]="i" ngbSlide *ngFor="let img of desktopImages, let i = index">
+          <div class="picsum-img-wrapper">
+            <div class="row justify-content-center text-center py-5">
+              <div *ngFor="let sponsor of img, let j = index" class="col-2 d-flex">
+                <div class="logo mx-auto" [ngStyle]="{'background-image': 'url(../../../assets/sponsor'+(j+1)+'.png)'}"></div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+  <div class="row custom-carousel-caption justify-content-center py-2">
+    <div class="col-auto d-flex">
+      <app-carousel-indicator class="my-auto" [images]="desktopImages" [activeSlide]="activeSlide"></app-carousel-indicator>
+    </div>
+    <div class="col-auto d-flex">
+      <h5 class="sponsor-caption my-auto">Nos Sponsors</h5>
+    </div>
+  </div>
+</div>
+
+<div class="presentation sponsor d-md-none">
+  <div class="carousel-container d-flex w-100">
+    <div class="my-auto w-100">
+      <ngb-carousel #mobileCarousel interval="5000"
+                    [showNavigationIndicators]="false"
+                    (slide)="incrementMobileCarouselCounter($event)"
+                    [pauseOnHover]="true">
+        <ng-template ngbSlide *ngFor="let img of images, let i = index" [id]="i">
+          <div class="picsum-img-wrapper">
+            <div class="row justify-content-center text-white text-center py-5">
+              <div class="col-8 d-flex">
+                <div class="logo mx-auto" [ngStyle]="{'background-image': 'url(../../../assets/sponsor'+(i % 3 + 1)+'.png)'}"></div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+  <div class="row custom-carousel-caption justify-content-center py-2">
+    <div class="col-auto d-flex">
+      <app-carousel-indicator class="my-auto" [images]="images" [activeSlide]="mobileActiveSlide"></app-carousel-indicator>
+    </div>
+    <div class="col-auto d-flex">
+      <h5 class="sponsor-caption my-auto">Nos Sponsors</h5>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div *ngIf="videos && videos.length > 0" class="py-1 px-2 h-100 d-flex flex-column position-relative">
+  <button (click)="closeDialog()" class="position-absolute close-button">
+    <mat-icon>cancel</mat-icon>
+  </button>
+  <div class="row flex-grow-1">
+    <div *ngIf="videos.length > 1" class="col-auto d-flex">
+      <button (click)="previousVideo()" class="my-auto scroll-icon">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+    </div>
+    <div class="col current-image">
+      <iframe class="video-iframe" [src]="videos[currentVideoIndex]" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-auto d-flex">
+      <button *ngIf="videos.length > 1" (click)="nextVideo()" class="my-auto scroll-icon">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="scroll thumbnail-list">
+    <div *ngFor="let thumbnail of thumbnails, let i = index" class="item h-100 p-2">
+      <div (click)="selectVideo(i)" class="h-100 w-100 image-thumbnail position-relative" [ngClass]="{'active': i == currentVideoIndex}" [ngStyle]="{'background-image' : thumbnail}">
+        <div class="position-absolute w-100 h-100 thumbnail-overlay"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!videos || videos.length == 0" class="d-flex h-100 position-relative">
+  <button (click)="closeDialog()" class="position-absolute close-button">
+    <mat-icon>cancel</mat-icon>
+  </button>
+  <h4 class="my-auto mx-auto">Aucun vidéo à afficher!</h4>
+</div>

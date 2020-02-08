@@ -1,0 +1,34 @@
+<div *ngIf="images && images.length > 0" class="py-1 px-2 h-100 d-flex flex-column position-relative">
+  <button (click)="closeDialog()" class="position-absolute close-button">
+    <mat-icon>cancel</mat-icon>
+  </button>
+  <div class="row flex-grow-1">
+    <div *ngIf="images.length > 1" class="col-auto d-flex">
+      <button (click)="previousImage()" class="my-auto scroll-icon">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+      </button>
+    </div>
+    <div class="col current-image" [ngStyle]="{'background-image' : images[currentImageIndex]}">
+
+    </div>
+    <div class="col-auto d-flex">
+      <button *ngIf="images.length > 1" (click)="nextImage()" class="my-auto scroll-icon">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="scroll thumbnail-list">
+    <div *ngFor="let image of images, let i = index" class="item h-100 p-2">
+      <div (click)="selectImage(i)" class="h-100 w-100 image-thumbnail position-relative" [ngClass]="{'active': i == currentImageIndex}" [ngStyle]="{'background-image' : image}">
+        <div class="position-absolute w-100 h-100 thumbnail-overlay"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!images || images.length == 0" class="d-flex h-100 position-relative">
+  <button (click)="closeDialog()" class="position-absolute close-button">
+    <mat-icon>cancel</mat-icon>
+  </button>
+  <h4 class="my-auto mx-auto">Aucune image à afficher!</h4>
+</div>

@@ -1,0 +1,9 @@
+<div class="row no-gutters">
+  <div class="col d-flex">
+    <div class="indicator-line my-auto"></div>
+  </div>
+  <div class="col d-flex" *ngFor="let img of images, let i = index">
+    <div class="indicator my-auto" [ngClass]="{'active' : i == activeSlide}"></div>
+    <div class="indicator-line my-auto"></div>
+  </div>
+</div>
