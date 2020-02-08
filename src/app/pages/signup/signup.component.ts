@@ -18,20 +18,20 @@ export class SignupComponent implements OnInit {
   sizes: string[] = ['S', 'M', 'L', 'XL'];
 
   subscriptionForm: FormGroup = this.fb.group({
-    first_name: ['Ben Hassine', [Validators.required, Validators.maxLength(25), Validators.minLength(2)]],
-    last_name: ['Hazem', [Validators.required, Validators.maxLength(45), Validators.minLength(2)]],
-    nickname: ['Hzm', [Validators.required, Validators.maxLength(25), Validators.minLength(3)]],
-    cin: [7484193, [Validators.required, Validators.maxLength(8), Validators.minLength(8)]],
-    nationality: ['Tunisien', [Validators.required, Validators.maxLength(25), Validators.minLength(2)]],
-    email: ['hazem.benhassine@vynd.com', [Validators.required, Validators.email]],
-    birthdate: [moment(), Validators.required],
-    club: ['Vynd', [Validators.required, Validators.maxLength(45), Validators.minLength(2)]],
-    emergency_contact: ['Nouisser', [Validators.required, Validators.maxLength(45), Validators.minLength(2)]],
-    emergency_contact_num: [69696969, [Validators.required, Validators.minLength(6)]],
+    first_name: ['', [Validators.required, Validators.maxLength(25), Validators.minLength(2)]],
+    last_name: ['', [Validators.required, Validators.maxLength(45), Validators.minLength(2)]],
+    nickname: ['', [Validators.required, Validators.maxLength(25), Validators.minLength(3)]],
+    cin: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(8)]],
+    nationality: ['', [Validators.required, Validators.maxLength(25), Validators.minLength(2)]],
+    email: ['', [Validators.required, Validators.email]],
+    birthdate: ['', Validators.required],
+    club: ['', [Validators.required, Validators.maxLength(45), Validators.minLength(2)]],
+    emergency_contact: ['', [Validators.required, Validators.maxLength(45), Validators.minLength(2)]],
+    emergency_contact_num: ['', [Validators.required, Validators.minLength(6)]],
     gender: [0, Validators.required],
     t_shirt: ['S', Validators.required],
     creation_date: [moment().format('YYYY-MM-DD') + 'T23:13:48.024Z'],
-    rules_and_agreements: [true, Validators.requiredTrue]
+    rules_and_agreements: [false, Validators.requiredTrue]
   });
 
   constructor(private fb: FormBuilder,
