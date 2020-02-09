@@ -1,161 +1,239 @@
 <ng-progress></ng-progress>
-<div class="container-fluid">
-  <div class="custom-navbar fixed-top d-flex">
-    <div class="top row no-gutters navbar justify-content-center my-auto">
-      <div class="col-auto active" (click)="go(home)">Accueil</div>
-      <div class="col-auto" (click)="go(course)">Course</div>
-      <div class="col-auto" (click)="go(route)">Parcours</div>
+<nav class="custom-navbar fixed-top d-none d-lg-block" [ngClass]="{'height': toggle && !isDialogOpen, 'hidden': isDialogOpen}">
+  <div class="d-flex h-100">
+    <div class="position-absolute h-100 navbar-container py-2 px-3">
+      <div class="navbar-logo"></div>
+    </div>
+    <div class="top row mx-auto no-gutters navbar justify-content-center my-auto">
+      <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'home' }" (click)="go(home)">
+        <span>Accueil</span>
+        <div class="active-underline"></div>
+      </div>
+      <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'course' }" (click)="go(course)">
+        <span>Course</span>
+        <div class="active-underline"></div>
+      </div>
+      <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'route' }" (click)="go(route)">
+        <span>Parcours</span>
+        <div class="active-underline"></div>
+      </div>
       <!--<div class="col-auto">Résultats</div>-->
-      <div class="col-auto" (click)="go(partners)">Partenaires</div>
-      <div class="col-auto" (click)="go(volunteers)">Bénévoles</div>
-      <div class="col-auto" (click)="go(media)">Médias</div>
-      <div class="col-auto" (click)="go(register)">Inscription</div>
-    </div>
-  </div>
-  <div class="header pt-5" #home>
-    <div class="landing-image text-center py-3 mt-4">
-      <img src="../assets/logo_notext.svg" alt="Trail Mont Boukornine">
-    </div>
-    <div class="text-center">
-      <h1 class="landing-title">TRAIL MONT <span class="bold">BOUGARNINE</span></h1>
-      <div class="row no-gutters justify-content-center">
-        <div class="col-1 d-flex">
-          <div class="hr-line my-auto"></div>
-        </div>
-        <div class="col-auto landing-date px-3">19 AVRIL 2020</div>
-        <div class="col-1 d-flex">
-          <div class="hr-line my-auto"></div>
-        </div>
+      <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'partners' }" (click)="go(partners)">
+        <span>Partenaires</span>
+        <div class="active-underline"></div>
+      </div>
+      <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'volunteers' }" (click)="go(volunteers)">
+        <span>Bénévoles</span>
+        <div class="active-underline"></div>
+      </div>
+      <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'media' }" (click)="go(media)">
+        <span>Médias</span>
+        <div class="active-underline"></div>
+      </div>
+      <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'register' }" (click)="go(register)">
+        <span>Inscription</span>
+        <div class="active-underline"></div>
       </div>
     </div>
   </div>
-  <div class="content">
-    <div class="text">
-      <div class="row justify-content-center py-md-4 py-2">
-        <div class="col-auto">
-          <div class="box text-center d-flex">
-            <span class="my-auto">40 Km</span>
+</nav>
+<nav class="mobile-navbar fixed-top d-lg-none">
+  <div class="navbar-elements position-relative">
+    <div class="w-100 h-100 d-flex">
+        <div class="mobile-navbar-logo my-auto"></div>
+    </div>
+    <div class="toggler-container d-flex px-2">
+      <button class="navbar-toggler my-auto" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
+      </button>
+    </div>
+  </div>
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse px-3">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <span class="nav-link" (click)="goMobile(home)">Accueil</span>
+      </li>
+      <li class="nav-item">
+        <span class="nav-link" (click)="goMobile(course)">Course</span>
+      </li>
+      <li class="nav-item">
+        <span class="nav-link" (click)="goMobile(route)">Parcours</span>
+      </li>
+      <li class="nav-item">
+        <span class="nav-link" (click)="goMobile(partners)">Partenaires</span>
+      </li>
+      <li class="nav-item">
+        <span class="nav-link" (click)="goMobile(volunteers)">Bénévoles</span>
+      </li>
+      <li class="nav-item">
+        <span class="nav-link" (click)="goMobile(media)">Médias</span>
+      </li>
+      <li class="nav-item">
+        <span class="nav-link" (click)="goMobile(register)">Inscription</span>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid" appScrollSpy [spiedTags]="['DIV']" (sectionChange)="onSectionChange($event)">
+  <div id="home">
+    <div class="header pt-5" #home>
+      <div class="landing-image text-center py-3 mt-4">
+        <img src="../assets/logo_notext.svg" alt="Trail Mont Boukornine">
+      </div>
+      <div class="text-center">
+        <h1 class="landing-title">TRAIL MONT <span class="bold">BOUGARNINE</span></h1>
+        <div class="row no-gutters justify-content-center">
+          <div class="col-1 d-flex">
+            <div class="hr-line my-auto"></div>
           </div>
-        </div>
-        <div class="col-auto">
-          <div class="box text-center d-flex">
-            <span class="my-auto">1300 D+</span>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-md-5 pt-md-3">
-        <button class="subscribe-btn" (click)="go(register)">S'inscrire</button>
-      </div>
-    </div>
-  </div>
-  <div class="presentation text-center" #course>
-    <h2 class="h2-title">Présentation de la course</h2>
-    <div class="d-flex">
-      <div class="hr-title mx-auto"></div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-10 offset-1 offset-lg-3 col-lg-6 description text-center mx-auto my-4">
-        <p>
-          Le concept du trail du Mont Bougarnine repose sur la volonté des créateurs de l’événement  d’allier une épreuve sportive à une action festive de sensibilisation aux problématiques de  protection du milieu naturel et de développement durable.
-        </p>
-
-        <p>
-          Les organisateurs aspirent à organiser la première compétition homologuée par l’ITRA
-          (Organisation Mondiale du Trail) sur le grand tunis (la deuxième en Tunisie) et à redonner à
-          la montagne de Bougarnine la place qu’elle occupait avant les attentats de Slimane
-        </p>
-        <p>
-          Il s’agit de la première compétition du genre sur le grand Tunis.
-          Le TMB dans sa première édition aura lieu le samedi 18 avril. Le départ sera donné devant
-          la municipalité de Boumhal à 7h du matin.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="presentation text-center" #route>
-    <h2 class="h2-title">Parcours</h2>
-    <div class="d-flex">
-      <div class="hr-title mx-auto"></div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-10 col-lg-5 offset-lg-1 text-left py-4">
-        <h3 class="h3-title">19/04/2020</h3>
-        <h3 class="h3-title">Municipalité de Boumhel El Bassatine</h3>
-        <div class="row">
-          <div class="col-4">
-            <div class="hr-line"></div>
-          </div>
-          <div class="col text-center">
-            <button class="tmb-btn">Plus d'infos</button>
+          <div class="col-auto landing-date px-3">19 AVRIL 2020</div>
+          <div class="col-1 d-flex">
+            <div class="hr-line my-auto"></div>
           </div>
         </div>
       </div>
-      <div class="col-lg-6 d-flex justify-content-end">
-        <div class="ellipse-top-image"></div>
-      </div>
     </div>
-    <div>
-      <img src="../assets/mock_map.png" alt="map mock image" style="width: 100%;">
-    </div>
-    <div class="row">
-      <div class="col-12 col-lg-6">
-        <div class="ellipse-bottom-image"></div>
+    <div class="content">
+      <div class="text">
+        <div class="row justify-content-center py-md-4 py-2">
+          <div class="col-auto">
+            <div class="box text-center d-flex">
+              <span class="my-auto">40 Km</span>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="box text-center d-flex">
+              <span class="my-auto">1300 D+</span>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-md-5 pt-md-3">
+          <button class="subscribe-btn position-relative" (click)="go(register)">S'inscrire
+            <span class="button-overlay w-100 text-right px-4 sub-arrow">
+              <mat-icon>arrow_forward_ios</mat-icon>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
-  <div #partners></div>
-  <app-partners></app-partners>
-
-  <div class="presentation volunteer text-center py-4" #volunteers>
-    <h2 class="h2-title">Bénévoles</h2>
-    <div class="d-flex">
-      <div class="hr-title mx-auto"></div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-11 col-md-8 py-4">
-        <div class="volunteer-text">
+  <div class="pt-2" id="course" #course>
+    <div class="presentation pt-5 pb-2 text-center">
+      <h2 class="h2-title">Présentation de la course</h2>
+      <div class="d-flex">
+        <div class="hr-title mx-auto"></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-10 offset-1 offset-lg-3 col-lg-6 description text-center mx-auto my-4">
           <p>
-            Vous aimez le trail ou la nature et vous voulez nous aider et aider nos amis?
-            Ou alors peut-être que vous êtes blessé mais que vous voulez quand même être présent
+            Le concept du trail du Mont Bougarnine repose sur la volonté des créateurs de l’événement  d’allier une épreuve sportive à une action festive de sensibilisation aux problématiques de  protection du milieu naturel et de développement durable.
+          </p>
+
+          <p>
+            Les organisateurs aspirent à organiser la première compétition homologuée par l’ITRA
+            (Organisation Mondiale du Trail) sur le grand tunis (la deuxième en Tunisie) et à redonner à
+            la montagne de Bougarnine la place qu’elle occupait avant les attentats de Slimane
           </p>
           <p>
-            ...bienvenue parmi nous
+            Il s’agit de la première compétition du genre sur le grand Tunis.
+            Le TMB dans sa première édition aura lieu le samedi 18 avril. Le départ sera donné devant
+            la municipalité de Boumhal à 7h du matin.
           </p>
         </div>
-        <div class="row no-gutters text-left pt-3 pb-4">
-          <div class="col-md pt-4 px-2 px-md-0">
-            <h5 class="volunteer-perk-t">Ce que nous offrons aux bénévoles :</h5>
-            <ul class="volunteer-perk-list">
-              <li>Une remise de 10% pour votre prochaine participation à notre course en 2021</li>
-              <li>Un événement Inédit et festif</li>
-              <li>Un souvenir</li>
-              <li>Un repas</li>
-            </ul>
+      </div>
+    </div>
+  </div>
+  <div id="route" #route>
+    <div class="presentation py-5 text-center">
+      <h2 class="h2-title">Parcours</h2>
+      <div class="d-flex">
+        <div class="hr-title mx-auto"></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-10 col-lg-5 offset-lg-1 text-left py-4">
+          <h3 class="h3-title">19/04/2020</h3>
+          <h3 class="h3-title">Municipalité de Boumhel El Bassatine</h3>
+          <div class="row">
+            <div class="col-4">
+              <div class="hr-line"></div>
+            </div>
+            <div class="col text-center">
+              <button class="tmb-btn">Plus d'infos</button>
+            </div>
           </div>
-          <div class="col-md">
-            <div class="d-flex">
-              <div class="team-img mx-auto"></div>
-            </div>
-            <div class="volunteer-form text-center py-3">
-              FORMULAIRE D'INSCRIPTION BÉNÉVOLE
-            </div>
-            <div class="text-center">
-              <button class="tmb-btn">CLIQUER ICI</button>
-            </div>
-          </div>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end">
+          <div class="ellipse-top-image"></div>
+        </div>
+      </div>
+      <div>
+        <img src="../assets/mock_map.png" alt="map mock image" style="width: 100%;">
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <div class="ellipse-bottom-image"></div>
         </div>
       </div>
     </div>
   </div>
 
-  <app-sponsors></app-sponsors>
-  <div #media></div>
-  <app-media></app-media>
-  <div #register></div>
-  <app-signup></app-signup>
+  <div class="py-5" id="partners" #partners>
+    <app-partners></app-partners>
+  </div>
+
+  <div id="volunteers" #volunteers>
+    <div class="presentation volunteer text-center py-5">
+      <h2 class="h2-title">Bénévoles</h2>
+      <div class="d-flex">
+        <div class="hr-title mx-auto"></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-8 py-4">
+          <div class="volunteer-text">
+            <p>
+              Vous aimez le trail ou la nature et vous voulez nous aider et aider nos amis?
+              Ou alors peut-être que vous êtes blessé mais que vous voulez quand même être présent
+            </p>
+            <p>
+              ...bienvenue parmi nous
+            </p>
+          </div>
+          <div class="row no-gutters text-left pt-3 pb-4">
+            <div class="col-md pt-4 px-2 px-md-0">
+              <h5 class="volunteer-perk-t">Ce que nous offrons aux bénévoles :</h5>
+              <ul class="volunteer-perk-list">
+                <li>Une remise de 10% pour votre prochaine participation à notre course en 2021</li>
+                <li>Un événement Inédit et festif</li>
+                <li>Un souvenir</li>
+                <li>Un repas</li>
+              </ul>
+            </div>
+            <div class="col-md">
+              <div class="d-flex">
+                <div class="team-img mx-auto"></div>
+              </div>
+              <div class="volunteer-form text-center py-3">
+                FORMULAIRE D'INSCRIPTION BÉNÉVOLE
+              </div>
+              <div class="text-center">
+                <button class="tmb-btn">CLIQUER ICI</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-sponsors></app-sponsors>
+  </div>
+
+  <div class="py-3" id="media" #media>
+    <app-media (opened)="setDialogState($event)"></app-media>
+  </div>
+  <div class="pt-5" id="register" #register>
+    <app-signup></app-signup>
+  </div>
   <footer class="text-right px-2">
-    Copyright © 2020 Trail Mont Bougranine
+    Copyright © 2020 Trail Mont Bougarnine
   </footer>
 </div>
 <router-outlet></router-outlet>

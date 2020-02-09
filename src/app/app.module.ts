@@ -22,6 +22,7 @@ import {ToastrModule} from 'ngx-toastr';
 import { ImageGalleryComponent } from './shared/image-gallery/image-gallery.component';
 import { VideoGalleryComponent } from './shared/video-gallery/video-gallery.component';
 import { PartnersComponent } from './pages/partners/partners.component';
+import { ScrollSpyDirective } from './shared/scroll-spy.directive';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PartnersComponent } from './pages/partners/partners.component';
     ImageGalleryComponent,
     VideoGalleryComponent,
     PartnersComponent,
+    ScrollSpyDirective,
   ],
   imports: [
     BrowserModule,

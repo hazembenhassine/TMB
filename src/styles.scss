@@ -45,8 +45,29 @@ body {
   cursor: pointer;
 }
 
-.navbar .active {
-  border-bottom: solid 1px #ffae00;
+.navbar .active .active-underline{
+  opacity: 1;
+}
+
+.navbar .elm {
+  position: relative;
+}
+
+.navbar .elm span {
+  padding: 0 3px;
+}
+
+.active-underline {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ffae00;
+  opacity: 0;
+  margin-bottom: -3px;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
 }
 
 .landing-image img {
@@ -105,6 +126,17 @@ body {
   font-size: 26px;
   font-weight: 700;
   color: #26272d;
+}
+
+.sub-arrow {
+  font-size: 30px;
+}
+
+.button-overlay {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
 .content {
@@ -243,19 +275,44 @@ body {
   color: #282828;
 }
 
-.custom-navbar .top {
-  background-color: rgba(237, 241, 249, 0.9);
+.custom-navbar {
+  opacity: 1;
+  height: 50px;
+  background-color: #fff;
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  border-bottom: solid 2px #edf0f5;
 }
 
-.custom-navbar {
-  opacity: 0.4;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+.navbar-container {
+  height: 100%;
+  width: 90px;
+}
+
+.navbar-logo {
+  height: 100%;
+  width: 100%;
+  background: url("assets/logo.svg") left center no-repeat;
+  background-size: contain;
+}
+
+.mobile-navbar-logo {
+  height: 80%;
+  width: 100%;
+  background: url("assets/logo.svg") center no-repeat;
+  background-size: contain;
 }
 
 .custom-navbar:hover {
   opacity: 1;
+}
+
+.height {
+  height: 80px;
+  background-color: #EDF1F9;
+  opacity: 1;
+  border-bottom: none;
 }
 
 .sponsor {
@@ -483,12 +540,12 @@ footer {
 }
 
 .container-fluid > div {
-  scroll-margin: 80px;
+  scroll-margin: 30px;
 }
 
 .custom-mat-dialog {
   width: 80%;
-  height: 90%;
+  height: 85%;
   padding-bottom: 0;
   margin: auto;
 }
@@ -589,4 +646,29 @@ footer {
 .video-iframe {
   height: 100%;
   width: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.mobile-navbar {
+  background-color: #fff;
+  border-bottom: solid 2px #edf0f5;
+}
+
+.mobile-navbar .navbar-elements {
+  height: 70px;
+}
+
+.mobile-navbar .toggler-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.toggler-container .navbar-toggler {
+  border: solid 1px #888888;
+  height: 50px;
 }

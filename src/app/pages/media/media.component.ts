@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { MatDialog } from '@angular/material';
 import {ImageGalleryComponent} from '../../shared/image-gallery/image-gallery.component';
 import {TbmService} from '../../services/tbm.service';
@@ -16,6 +16,8 @@ export class MediaComponent implements OnInit {
   imageList: string[];
   videoList: string[];
   pressKit: string;
+
+  @Output() opened = new EventEmitter<boolean>();
 
   constructor(private dialog: MatDialog,
               private api: TbmService) { }
@@ -39,16 +41,26 @@ export class MediaComponent implements OnInit {
   }
 
   openImageGallery() {
-    this.dialog.open(ImageGalleryComponent, {
+    const dialogRef = this.dialog.open(ImageGalleryComponent, {
       panelClass: 'custom-mat-dialog',
       data: this.imageList
+    });
+
+    this.opened.emit(true);
+    dialogRef.afterClosed().subscribe(() => {
+      this.opened.emit(false);
     });
   }
 
   openVideoGallery() {
-    this.dialog.open(VideoGalleryComponent, {
+    const dialogRef = this.dialog.open(VideoGalleryComponent, {
       panelClass: 'custom-mat-dialog',
       data: this.videoList
+    });
+
+    this.opened.emit(true);
+    dialogRef.afterClosed().subscribe(() => {
+      this.opened.emit(false);
     });
   }
 

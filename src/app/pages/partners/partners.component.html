@@ -1,12 +1,12 @@
-<div class="presentation text-center">
+<div class="presentation text-center pb-5">
   <h2 class="h2-title">Partenaires</h2>
   <div class="d-flex">
     <div class="hr-title mx-auto"></div>
   </div>
   <div class="row justify-content-center pt-2 pb-5">
-    <div class="col-11 col-md-10">
+    <div class="col-11 col-lg-8">
       <div *ngFor="let row of partners, let i = index" class="row justify-content-center">
-        <div *ngFor="let partner of row, let j = index" class="col-md my-3">
+        <div *ngFor="let partner of row, let j = index" class="col-md-3 my-3 px-4">
           <div class="d-flex justify-content-center pb-2">
             <div class="partner-image">
               <img [src]="'../../../assets/partners/'+(i*4+j+1)+'.png'" [alt]="'A photo of '+partner.name">

@@ -1,6 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import {NgProgress} from 'ngx-progressbar';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +6,12 @@ import {NgProgress} from 'ngx-progressbar';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   title = 'Trail Mont Bougarnine';
+  toggle = true;
+  isDialogOpen = false;
+  activeSection = 'home';
+  isMenuCollapsed = true;
 
   constructor() {
   }
@@ -20,4 +23,22 @@ export class AppComponent implements OnInit {
     elm.scrollIntoView({ behavior: 'smooth'});
   }
 
+  goMobile(elm: HTMLElement) {
+    this.go(elm);
+    this.isMenuCollapsed = true;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  collapseHeader() {
+    this.toggle = window.pageYOffset === 0;
+  }
+
+  setDialogState(state: boolean) {
+    this.isDialogOpen = state;
+  }
+
+  onSectionChange($event: string) {
+    this.activeSection = $event;
+    console.log($event);
+  }
 }
