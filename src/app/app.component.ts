@@ -53,4 +53,8 @@ export class AppComponent implements OnInit {
     });
   }
 
+  save(link: string) {
+    window.open(link);
+  }
+
 }

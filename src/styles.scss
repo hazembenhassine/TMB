@@ -85,7 +85,7 @@ input[type=number] {
 }
 
 .landing-image img {
-  width: 150px;
+  width: 160px;
 }
 
 .landing-title {
@@ -307,8 +307,27 @@ input[type=number] {
 .navbar-logo {
   height: 100%;
   width: 100%;
-  background: url("assets/logo.svg") left center no-repeat;
+  background: none;
   background-size: contain;
+  transition: background .2s ease-in-out;
+  -moz-transition: background .2s ease-in-out;
+  -webkit-transition: background .2s ease-in-out;
+}
+
+.navbar-logo img{
+  height: 100%;
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out;
+  -webkit-transition: opacity .2s ease-in-out;
+}
+
+.height .navbar-logo {
+  background: url("assets/logo.svg") left center no-repeat;
+}
+
+.height .navbar-logo img {
+  opacity: 0;
 }
 
 .mobile-navbar-logo {
@@ -316,10 +335,6 @@ input[type=number] {
   width: 100%;
   background: url("assets/logo.svg") center no-repeat;
   background-size: contain;
-}
-
-.custom-navbar:hover {
-  opacity: 1;
 }
 
 .height {
@@ -523,10 +538,17 @@ input[type=number] {
   color: #282828;
 }
 
-
-
 .check-label {
   font-size: 13px;
+}
+
+.check-label a {
+  color: #1d1d1b;
+  text-decoration: underline;
+}
+
+.is-invalid + .check-label a {
+  color: #DC3545;
 }
 
 

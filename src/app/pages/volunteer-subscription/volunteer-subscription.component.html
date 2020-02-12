@@ -77,8 +77,8 @@
   <div class="text-center my-2">
     <div class="form-check">
       <input formControlName="rules_and_agreements" class="form-check-input" type="checkbox" id="defaultCheck1" [ngClass]="{'is-invalid': isFieldInvalid('rules_and_agreements') && this.volunteerForm.get('rules_and_agreements').errors.required}">
-      <label class="form-check-label" for="defaultCheck1">
-        <small>J'ai lu et j'accèpte les conditions et règlements</small>
+      <label class="form-check-label check-label font-weight-bold" for="defaultCheck1">
+        J'ai lu et <a href="http://trailmontbougarnine.com/reglements__organisation.pdf" (click)="$event.stopPropagation()" target="_blank">j'accèpte les conditions et règlements</a> de la course
       </label>
     </div>
   </div>

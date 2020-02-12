@@ -2,7 +2,9 @@
 <nav class="custom-navbar fixed-top d-none d-lg-block" [ngClass]="{'height': toggle && !isDialogOpen, 'hidden': isDialogOpen}">
   <div class="d-flex h-100">
     <div class="position-absolute h-100 navbar-container py-2 px-3">
-      <div class="navbar-logo"></div>
+      <div class="navbar-logo d-flex overflow-hidden">
+        <img src="assets/logo-TMB-V02.gif" class="my-auto mx-auto" alt="logo tmb">
+      </div>
     </div>
     <div class="top row mx-auto no-gutters navbar justify-content-center my-auto">
       <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'home' }" (click)="go(home)">
@@ -154,7 +156,7 @@
               <div class="hr-line"></div>
             </div>
             <div class="col text-center">
-              <button class="tmb-btn">Plus d'infos</button>
+              <button class="tmb-btn" (click)="save('http://trailmontbougarnine.com/parcours.pdf')">Plus d'infos</button>
             </div>
           </div>
         </div>

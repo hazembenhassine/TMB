@@ -193,7 +193,7 @@
         <div class="form-check">
           <input formControlName="rules_and_agreements" [ngClass]="{'is-invalid': isFieldInvalid('rules_and_agreements') && this.subscriptionForm.get('rules_and_agreements').errors.required}" class="form-check-input" type="checkbox" id="terms-checkbox">
           <label class="form-check-label font-weight-bold check-label" for="terms-checkbox">
-            J'ai lu et j'accèpte les conditions générales et règlements de la course
+            J'ai lu et j'accèpte <a href="http://trailmontbougarnine.com/reglements__organisation.pdf" (click)="$event.stopPropagation()" target="_blank">les conditions générales et règlements</a> de la course
             <small class="form-text font-weight-bold">(Certificat médicale obligatoire)</small>
           </label>
         </div>
@@ -202,7 +202,7 @@
     <div class="row justify-content-center my-4">
       <div class="col-10 col-md-8">
         <div>
-          <button class="tmb-btn mr-md-4 payment-btn mt-2" disabled>100 dt</button>
+          <button class="tmb-btn mr-md-4 payment-btn mt-2" disabled>120 dt</button>
           <button class="tmb-btn payment-btn mt-2" [ngClass]="{'disabled': this.subscriptionForm.invalid || currentlyBusy}" [disabled]="this.subscriptionForm.invalid || currentlyBusy" (click)="submitForm()">Acheter via Teskerti.tn</button>
         </div>
         <div>
