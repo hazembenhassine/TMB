@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap');
 @import url('assets/typefaces.scss');
 @import '~ngx-toastr/toastr';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
 
 html,
 body {
@@ -526,10 +529,20 @@ input[type=number] {
   font-size: 13px;
 }
 
+
+
 .payment-btn {
   font-size: 20px;
   color: #fff;
-  padding: 0 35px;
+  padding: 0 20px;
+}
+
+@include media-breakpoint-up(md) {
+  .payment-btn {
+    font-size: 20px;
+    color: #fff;
+    padding: 0 35px;
+  }
 }
 
 .space-filler {
@@ -557,16 +570,33 @@ footer {
 }
 
 .custom-mat-dialog {
-  width: 80%;
-  height: 85%;
+  width: 100%;
+  height: 40%;
   padding-bottom: 0;
   margin: auto;
 }
 
+@include media-breakpoint-up(md) {
+  .custom-mat-dialog {
+    width: 80%;
+    height: 85%;
+    padding-bottom: 0;
+    margin: auto;
+  }
+}
+
 .card-mat-dialog {
-  width: 30%;
-  height: auto;
+  width: 95%;
+  height: 90%;
   margin: auto;
+}
+
+@include media-breakpoint-up(md) {
+  .card-mat-dialog {
+    width: 30%;
+    height: auto;
+    margin: auto;
+  }
 }
 
 .card-mat-dialog .mat-dialog-container {
