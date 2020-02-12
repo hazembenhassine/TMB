@@ -13,7 +13,7 @@ export class SponsorsComponent implements OnInit {
   rawFiles: Sponsor[];
 
   images: string[];
-  desktopImages: string[];
+  desktopImages: string[][];
 
   @ViewChild('carousel', {static : true}) carousel: NgbCarousel;
   @ViewChild('mobileCarousel', {static : true}) mobileCarousel: NgbCarousel;

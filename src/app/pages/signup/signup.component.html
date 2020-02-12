@@ -80,8 +80,8 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div class="col-10 col-md-4 d-flex">
-        <div class="row my-auto w-92 mx-auto mx-md-0 pb-3 pb-md-0">
+      <div class="col-10 col-md-4 d-flex justify-content-center justify-content-md-start">
+        <div class="row my-auto w-92 pb-3 pb-md-0">
           <div class="col-3">Sexe: </div>
           <div class="col-9">
             <button class="check-button" [ngClass]="{'active' : getSex() == 0, 'disabled': getSex() != 0}" (click)="setSex(0)">M</button>
@@ -106,8 +106,8 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <div class="col-10 col-md-4 d-flex">
-        <div class="row my-auto w-92 mx-auto mx-md-0">
+      <div class="col-10 col-md-4 d-flex justify-content-center justify-content-md-start">
+        <div class="row my-auto w-92 pb-1 pb-md-0">
           <div class="col-3">Taille: </div>
           <div class="col-9">
             <button *ngFor="let size of sizes" class="check-button" [ngClass]="{'active' : getCurrentSize() == size, 'disabled': getCurrentSize() != size}" (click)="setCurrentSize(size)">{{size}}</button>

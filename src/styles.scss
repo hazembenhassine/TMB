@@ -672,3 +672,20 @@ footer {
   border: solid 1px #888888;
   height: 50px;
 }
+
+.map-container {
+  width: 100%;
+  padding-top: 75%;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-wrapper {
+  position: absolute;
+  margin-top: -32px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}

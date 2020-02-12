@@ -9,7 +9,7 @@
           <div class="picsum-img-wrapper">
             <div class="row justify-content-center text-center py-5">
               <div *ngFor="let sponsor of img, let j = index" class="col-2 d-flex">
-                <div class="logo mx-auto" [ngStyle]="{'background-image': 'url(../../../assets/sponsor'+(j+1)+'.png)'}"></div>
+                <div class="logo mx-auto" [ngStyle]="{'background-image': 'url('+sponsor+')'}"></div>
               </div>
             </div>
           </div>

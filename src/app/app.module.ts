@@ -23,6 +23,7 @@ import { ImageGalleryComponent } from './shared/image-gallery/image-gallery.comp
 import { VideoGalleryComponent } from './shared/video-gallery/video-gallery.component';
 import { PartnersComponent } from './pages/partners/partners.component';
 import { ScrollSpyDirective } from './shared/scroll-spy.directive';
+import { RouteMapComponent } from './shared/route-map/route-map.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ScrollSpyDirective } from './shared/scroll-spy.directive';
     VideoGalleryComponent,
     PartnersComponent,
     ScrollSpyDirective,
+    RouteMapComponent,
   ],
   imports: [
     BrowserModule,
