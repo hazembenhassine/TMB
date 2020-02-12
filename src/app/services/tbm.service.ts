@@ -113,4 +113,9 @@ export class TbmService {
       .toPromise().catch(TbmService.handleError);
   }
 
+  public submitVolunteerForm(body: any) {
+    return this.http.post(environment.backendUrl + '/volunteers', JSON.stringify(body))
+      .toPromise().catch(TbmService.handleError);
+  }
+
 }

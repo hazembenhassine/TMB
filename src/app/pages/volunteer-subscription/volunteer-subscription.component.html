@@ -1,0 +1,88 @@
+<div [formGroup]="volunteerForm">
+  <div class="text-center">
+    <h4>Inscription</h4>
+    <div class="d-flex">
+      <div class="hr-subtitle mx-auto"></div>
+    </div>
+    <small class="text-muted">Devenir bénévole!</small>
+    <button (click)="closeDialog()" class="position-absolute close-button" aria-label="Fermer la fenêtre">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+
+  <div>
+    <mat-form-field class="w-100">
+      <mat-label>Nom</mat-label>
+      <input formControlName="last_name" type="text" matInput placeholder="Ben Foulen">
+      <mat-error *ngIf="isFieldInvalid('last_name') && this.volunteerForm.get('last_name').errors.required">
+        Ce champ est requis!
+      </mat-error>
+      <mat-error *ngIf="isFieldInvalid('last_name') && this.volunteerForm.get('last_name').errors.minlength">
+        Ce champ devrait comprendre au moins 2 caractères.
+      </mat-error>
+      <mat-error *ngIf="isFieldInvalid('last_name') && this.volunteerForm.get('last_name').errors.maxlength">
+        Ce champ devrait comprendre au plus 45 caractères.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="w-100">
+      <mat-label>Prénom</mat-label>
+      <input formControlName="first_name" type="text" matInput placeholder="Foulen">
+      <mat-error *ngIf="isFieldInvalid('first_name') && this.volunteerForm.get('first_name').errors.required">
+        Ce champ est requis!
+      </mat-error>
+      <mat-error *ngIf="isFieldInvalid('first_name') && this.volunteerForm.get('first_name').errors.minlength">
+        Ce champ devrait comprendre au moins 2 caractères.
+      </mat-error>
+      <mat-error *ngIf="isFieldInvalid('first_name') && this.volunteerForm.get('first_name').errors.maxlength">
+        Ce champ devrait comprendre au plus 25 caractères.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="w-100">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" type="email" matInput placeholder="foulen.benfoulen@example.tn">
+      <mat-error *ngIf="isFieldInvalid('email') && this.volunteerForm.get('email').errors.required">
+        Ce champ est requis!
+      </mat-error>
+      <mat-error *ngIf="isFieldInvalid('email') && this.volunteerForm.get('email').errors.email">
+        Veuillez entrer une adresse e-mail valide
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="w-100">
+      <mat-label>Numéro de téléphone</mat-label>
+      <input formControlName="phone" type="number" matInput placeholder="71 000 000">
+      <mat-error *ngIf="isFieldInvalid('phone') && this.volunteerForm.get('phone').errors.required">
+        Ce champ est requis!
+      </mat-error>
+      <mat-error *ngIf="isFieldInvalid('phone') && this.volunteerForm.get('phone').errors.minlength">
+        Ce champ devrait comprendre au moins 6 chiffres.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="w-100">
+      <mat-label>Message</mat-label>
+      <textarea formControlName="message" matInput
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="1"
+                cdkAutosizeMaxRows="3"></textarea>
+      <mat-hint>Champ optionnel</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="text-center my-2">
+    <div class="form-check">
+      <input formControlName="rules_and_agreements" class="form-check-input" type="checkbox" id="defaultCheck1" [ngClass]="{'is-invalid': isFieldInvalid('rules_and_agreements') && this.volunteerForm.get('rules_and_agreements').errors.required}">
+      <label class="form-check-label" for="defaultCheck1">
+        <small>J'ai lu et j'accèpte les conditions et règlements</small>
+      </label>
+    </div>
+  </div>
+  <div class="text-center pt-2 pb-1">
+    <button class="volunteer-button w-92" (click)="submitForm()" [ngClass]="{'disabled' : currentlyBusy || volunteerForm.invalid}" [disabled]="currentlyBusy || volunteerForm.invalid">S'inscrire</button>
+  </div>
+</div>

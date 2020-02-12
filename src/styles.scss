@@ -15,6 +15,17 @@ body {
   outline: none;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
 .header {
   background-color: #edf1f9;
 }
@@ -509,6 +520,8 @@ body {
   color: #282828;
 }
 
+
+
 .check-label {
   font-size: 13px;
 }
@@ -548,6 +561,21 @@ footer {
   height: 85%;
   padding-bottom: 0;
   margin: auto;
+}
+
+.card-mat-dialog {
+  width: 30%;
+  height: auto;
+  margin: auto;
+}
+
+.card-mat-dialog .mat-dialog-container {
+  position: relative;
+}
+
+.card-mat-dialog .mat-dialog-container .close-button {
+  top: 8px;
+  right: 5px;
 }
 
 .current-image {
@@ -688,4 +716,26 @@ footer {
   left: 0;
   bottom: 0;
   overflow: hidden;
+}
+
+.hr-subtitle {
+  width: 100px;
+  height: 3px;
+  border-radius: 1px;
+  background-color: #ffba00;
+}
+
+.volunteer-button {
+  padding: 5px 50px;
+  background-color: #ffba00;
+  border: none;
+  border-radius: 1px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #26272d;
+}
+
+.volunteer-button.disabled {
+  background-color: #a5a5a5;
+  color: #555555;
 }

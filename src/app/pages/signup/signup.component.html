@@ -121,6 +121,9 @@
           <mat-form-field>
             <mat-label>E-mail</mat-label>
             <input formControlName="email" matInput type="email" placeholder="foulen.benfoulen@example.tn">
+            <mat-error *ngIf="isFieldInvalid('email') && this.subscriptionForm.get('email').errors.required">
+              Ce champ est requis!
+            </mat-error>
             <mat-error *ngIf="isFieldInvalid('email') && this.subscriptionForm.get('email').errors.email">
               Veuillez entrer une adresse e-mail valide
             </mat-error>

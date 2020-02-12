@@ -1,4 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {VolunteerSubscriptionComponent} from './pages/volunteer-subscription/volunteer-subscription.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ export class AppComponent implements OnInit {
   activeSection = 'home';
   isMenuCollapsed = true;
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -39,6 +41,16 @@ export class AppComponent implements OnInit {
 
   onSectionChange($event: string) {
     this.activeSection = $event;
-    console.log($event);
   }
+
+  openVolunteerSubscriptionForm() {
+    const dialogRef = this.dialog.open(VolunteerSubscriptionComponent, {
+      panelClass: 'card-mat-dialog'
+    });
+    this.isDialogOpen = true;
+    dialogRef.afterClosed().subscribe(() => {
+      this.isDialogOpen = false;
+    });
+  }
+
 }

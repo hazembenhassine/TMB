@@ -24,6 +24,7 @@ import { VideoGalleryComponent } from './shared/video-gallery/video-gallery.comp
 import { PartnersComponent } from './pages/partners/partners.component';
 import { ScrollSpyDirective } from './shared/scroll-spy.directive';
 import { RouteMapComponent } from './shared/route-map/route-map.component';
+import { VolunteerSubscriptionComponent } from './pages/volunteer-subscription/volunteer-subscription.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { RouteMapComponent } from './shared/route-map/route-map.component';
     PartnersComponent,
     ScrollSpyDirective,
     RouteMapComponent,
+    VolunteerSubscriptionComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { RouteMapComponent } from './shared/route-map/route-map.component';
   ],
   entryComponents: [
     ImageGalleryComponent,
-    VideoGalleryComponent
+    VideoGalleryComponent,
+    VolunteerSubscriptionComponent
   ],
   bootstrap: [AppComponent]
 })
