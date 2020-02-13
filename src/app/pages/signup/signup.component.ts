@@ -72,8 +72,9 @@ export class SignupComponent implements OnInit {
       this.api.submitSubscriptionForm(body).then(() => {
         this.toastr.success('Vous avez été inscrit avec succès!', 'Succès!', {timeOut: 10000, closeButton: true});
         this.subscriptionForm.reset();
+        window.open('https://www.teskerti.tn/evenement/trail-mont-bougarnine-2020/', '_self');
       }).catch(() => {
-        this.toastr.error('Une erreur s\'est produite, veuillez essayer plus tard.', 'Erreur!', {timeOut: 10000, closeButton: true});
+        this.toastr.error('Une erreur s\'est produite, veuillez réessayer plus tard.', 'Erreur!', {timeOut: 10000, closeButton: true});
       }).finally(() => {
           this.subscriptionForm.enable();
           this.currentlyBusy = false;
