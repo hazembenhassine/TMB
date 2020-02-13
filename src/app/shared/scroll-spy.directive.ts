@@ -1,7 +1,7 @@
 import {Directive, ElementRef, EventEmitter, HostListener, Input, Output} from '@angular/core';
 
 @Directive({
-  selector: '[appScrollSpy]'
+  selector: '[appScrollSpy]',
 })
 export class ScrollSpyDirective {
 
@@ -12,8 +12,8 @@ export class ScrollSpyDirective {
   // tslint:disable-next-line:variable-name
   constructor(private _el: ElementRef) {}
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event) {
+  @HostListener('window:scroll')
+  onScroll() {
     let currentSection: string;
     const children = this._el.nativeElement.children;
     const scrollTop = window.pageYOffset;

@@ -14,7 +14,7 @@ export class TbmService {
       name: 'Mohamed Laroussi',
       job: 'Directeur de course',
       // tslint:disable-next-line:max-line-length
-      description: '34 ans, Préparateur mental et enseignant d’éducation physique, ultra trailer depuis 4 ans et membre fondateur du running club Tunis.'
+      description: '34 ans, Préparateur mental et enseignant d’éducation physique, trailer depuis 4 ans et membre fondateur du running club Tunis.'
     },
     {
       name: 'Heifa Bouslama',
@@ -44,7 +44,7 @@ export class TbmService {
       name: 'Marwen Trabelsi',
       job: 'Responsable inscription & Actions sur le web',
       // tslint:disable-next-line:max-line-length
-      description: '30 ans, Ingénieur en génie logiciels, marathonien et ultratraile.'
+      description: '30 ans, Ingénieur en génie logiciels, marathonien et ultratrailer.'
     },
     {
       name: 'Ali Mnif',

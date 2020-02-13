@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     this.isMenuCollapsed = true;
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   collapseHeader() {
     this.toggle = window.pageYOffset === 0;
   }

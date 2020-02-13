@@ -28,9 +28,19 @@ export class MediaComponent implements OnInit {
     }).catch(() => {
       console.error('Error while loading media');
     }).then(() => {
-      this.imageList = this.rawMedia.photos.map((n) => n.url);
-      this.videoList = this.rawMedia.videos.map((n) => this.parseYoutubeLink(n.url));
-      this.pressKit = this.rawMedia.press_kit.url;
+      this.imageList = this.rawMedia.photos.map((n) => {
+        if (n && n.url) {
+          return n.url;
+        }
+      }).filter(url => url !== undefined);
+      this.videoList = this.rawMedia.videos.map((n) => {
+        if (n && n.url) {
+          return this.parseYoutubeLink(n.url);
+        }
+      }).filter(url => url !== undefined);
+      if (this.rawMedia.press_kit && this.rawMedia.press_kit.url) {
+        this.pressKit = this.rawMedia.press_kit.url;
+      }
     });
   }
 
@@ -65,7 +75,9 @@ export class MediaComponent implements OnInit {
   }
 
   openPressKit() {
-    window.open(this.pressKit);
+    if (this.pressKit) {
+      window.open(this.pressKit);
+    }
   }
 
 }

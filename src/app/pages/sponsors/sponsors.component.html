@@ -5,11 +5,11 @@
                     (slide)="incrementCarouselCounter($event)"
                     [showNavigationIndicators]="false"
                     [pauseOnHover]="true">
-        <ng-template [id]="i" ngbSlide *ngFor="let img of desktopImages, let i = index">
+        <ng-template [id]="i.toString()" ngbSlide *ngFor="let img of desktopImages, let i = index">
           <div class="picsum-img-wrapper">
             <div class="row justify-content-center text-center py-5">
-              <div *ngFor="let sponsor of img, let j = index" class="col-2 d-flex">
-                <div class="logo mx-auto" [ngStyle]="{'background-image': 'url('+sponsor+')'}"></div>
+              <div *ngFor="let sponsor of img" class="col-2 d-flex">
+                <div class="logo mx-auto" [ngStyle]="{'background-image': 'url(\''+sponsor+'\')'}"></div>
               </div>
             </div>
           </div>
@@ -34,11 +34,11 @@
                     [showNavigationIndicators]="false"
                     (slide)="incrementMobileCarouselCounter($event)"
                     [pauseOnHover]="true">
-        <ng-template ngbSlide *ngFor="let img of images, let i = index" [id]="i">
+        <ng-template ngbSlide *ngFor="let img of images, let i = index" [id]="i.toString()">
           <div class="picsum-img-wrapper">
             <div class="row justify-content-center text-white text-center py-5">
               <div class="col-8 d-flex">
-                <div class="logo mx-auto" [ngStyle]="{'background-image': 'url('+img+')'}"></div>
+                <div class="logo mx-auto" [ngStyle]="{'background-image': 'url(\''+img+'\')'}"></div>
               </div>
             </div>
           </div>
