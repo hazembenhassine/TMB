@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
     first_name: ['', [Validators.required, Validators.maxLength(25), Validators.minLength(2)]],
     last_name: ['', [Validators.required, Validators.maxLength(45), Validators.minLength(2)]],
     nickname: ['', [Validators.required, Validators.maxLength(25), Validators.minLength(3)]],
-    cin: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(8)]],
+    cin: ['', [Validators.required]],
     nationality: ['', [Validators.required, Validators.maxLength(25), Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
     birthdate: ['', Validators.required],

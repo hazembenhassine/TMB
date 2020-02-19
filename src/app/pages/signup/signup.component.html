@@ -54,16 +54,10 @@
       </div>
       <div class="col-10 col-md-4">
         <mat-form-field>
-          <mat-label>CIN</mat-label>
-          <input formControlName="cin" matInput type="number" placeholder="07000000">
+          <mat-label>CIN / PASSPORT</mat-label>
+          <input formControlName="cin" matInput type="text" placeholder="07000000">
           <mat-error *ngIf="isFieldInvalid('cin') && this.subscriptionForm.get('cin').errors.required">
             Ce champ est requis!
-          </mat-error>
-          <mat-error *ngIf="isFieldInvalid('cin') && this.subscriptionForm.get('cin').errors.minlength">
-            Ce champ devrait comprendre exactement 8 chiffres.
-          </mat-error>
-          <mat-error *ngIf="isFieldInvalid('cin') && this.subscriptionForm.get('cin').errors.maxlength">
-            Ce champ devrait comprendre exactement 8 chiffres.
           </mat-error>
         </mat-form-field>
       </div>
@@ -201,11 +195,14 @@
     </div>
     <div class="row justify-content-center my-4">
       <div class="col-10 col-md-8 row">
-        <div class="col-auto">
-          <button class="tmb-btn payment-btn mt-2" [ngClass]="{'disabled': this.subscriptionForm.invalid || currentlyBusy}" [disabled]="this.subscriptionForm.invalid || currentlyBusy" (click)="submitForm()">Acheter via Teskerti.tn</button>
-          <div class="d-flex">
-            <small class="font-weight-bold mx-auto my-1">Frais d'inscription: 120 dt</small>
+        <div class="col-auto d-flex">
+          <div>
+            <button  ton class="tmb-btn payment-btn mt-2" [ngClass]="{'disabled': this.subscriptionForm.invalid || currentlyBusy}" [disabled]="this.subscriptionForm.invalid || currentlyBusy" (click)="submitForm()">Acheter via Teskerti.tn</button>
+              <div class="d-flex">
+                <small class="font-weight-bold mx-auto my-1">Frais d'inscription: 120 dt</small>
+              </div>
           </div>
+          <img src="assets/ITR.png" style="width: 15%;object-fit: contain;margin-left: 10px;" />
         </div>
       </div>
     </div>
