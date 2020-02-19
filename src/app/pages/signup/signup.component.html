@@ -54,7 +54,7 @@
       </div>
       <div class="col-10 col-md-4">
         <mat-form-field>
-          <mat-label>CIN / PASSPORT</mat-label>
+          <mat-label>Numéro pièce d'identité</mat-label>
           <input formControlName="cin" matInput type="text" placeholder="07000000">
           <mat-error *ngIf="isFieldInvalid('cin') && this.subscriptionForm.get('cin').errors.required">
             Ce champ est requis!
@@ -125,6 +125,18 @@
         </div>
         <div>
           <mat-form-field>
+            <mat-label>Téléphone</mat-label>
+            <input formControlName="tel" matInput type="number" placeholder="71 000 000">
+            <mat-error *ngIf="isFieldInvalid('tel') && this.subscriptionForm.get('tel').errors.required">
+              Ce champ est requis!
+            </mat-error>
+            <mat-error *ngIf="isFieldInvalid('tel') && this.subscriptionForm.get('tel').errors.minlength">
+              Ce champ devrait comprendre au moins 6 chiffres.
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
             <mat-label>Club/Sponsor</mat-label>
             <input formControlName="club" matInput type="text" placeholder="Club/Sponsor">
             <mat-error *ngIf="isFieldInvalid('club') && this.subscriptionForm.get('club').errors.required">
@@ -180,6 +192,12 @@
         <small class="form-text">
         D'autres cadeaux sont réservés aux finishers et aux gagnants...
         </small>
+        <div class="py-2">
+          <ul class="runner-pack-list text-danger">
+            <li>Il faut remplir tous les champs pour pouvoir s'inscrire!</li>
+            <li>Votre inscription n'est valide que si le paiement est effectué sur Teskerti.tn ou dans l'un de nos bureaux.</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -197,12 +215,12 @@
       <div class="col-10 col-md-8 row">
         <div class="col-auto d-flex">
           <div>
-            <button  ton class="tmb-btn payment-btn mt-2" [ngClass]="{'disabled': this.subscriptionForm.invalid || currentlyBusy}" [disabled]="this.subscriptionForm.invalid || currentlyBusy" (click)="submitForm()">Acheter via Teskerti.tn</button>
-              <div class="d-flex">
-                <small class="font-weight-bold mx-auto my-1">Frais d'inscription: 120 dt</small>
-              </div>
+            <button class="tmb-btn payment-btn mt-2" [ngClass]="{'disabled': this.subscriptionForm.invalid || currentlyBusy}" [disabled]="this.subscriptionForm.invalid || currentlyBusy" (click)="submitForm()">Acheter via Teskerti.tn</button>
+            <div class="d-flex">
+              <small class="font-weight-bold mx-auto my-1">Frais d'inscription: 120 dt</small>
+            </div>
           </div>
-          <img src="assets/ITR.png" style="width: 15%;object-fit: contain;margin-left: 10px;" />
+          <img alt="ITR Logo" src="assets/ITR.png" style="width: 15%;object-fit: contain;margin-left: 10px;" />
         </div>
       </div>
     </div>

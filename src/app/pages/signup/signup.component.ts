@@ -24,6 +24,7 @@ export class SignupComponent implements OnInit {
     cin: ['', [Validators.required]],
     nationality: ['', [Validators.required, Validators.maxLength(25), Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
+    tel: ['', [Validators.required, Validators.minLength(6)]],
     birthdate: ['', Validators.required],
     club: ['', [Validators.required, Validators.maxLength(45), Validators.minLength(2)]],
     emergency_contact: ['', [Validators.required, Validators.maxLength(45), Validators.minLength(2)]],

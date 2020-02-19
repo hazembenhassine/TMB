@@ -28,6 +28,10 @@
         <span>Bénévoles</span>
         <div class="active-underline"></div>
       </div>
+      <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'sponsors' }" (click)="go(sponsors)">
+        <span>Partenaires</span>
+        <div class="active-underline"></div>
+      </div>
       <div class="col-auto elm" [ngClass]="{ 'active': activeSection === 'media' }" (click)="go(media)">
         <span>Médias</span>
         <div class="active-underline"></div>
@@ -62,10 +66,13 @@
         <span class="nav-link" (click)="goMobile(route)">Parcours</span>
       </li>
       <li class="nav-item">
-        <span class="nav-link" (click)="goMobile(partners)">Partenaires</span>
+        <span class="nav-link" (click)="goMobile(partners)">Organisateurs</span>
       </li>
       <li class="nav-item">
         <span class="nav-link" (click)="goMobile(volunteers)">Bénévoles</span>
+      </li>
+      <li class="nav-item">
+        <span class="nav-link" (click)="goMobile(sponsors)">Partenaires</span>
       </li>
       <li class="nav-item">
         <span class="nav-link" (click)="goMobile(media)">Médias</span>
@@ -220,6 +227,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div id="sponsors" #sponsors>
     <app-sponsors></app-sponsors>
   </div>
 
